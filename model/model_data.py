@@ -174,7 +174,7 @@ K-Nearest Neighbors
 test_data = pd.read_csv("../data_csv/test_with_features.csv")
 X = test_data.iloc[:, 1:]
 poly = PolynomialFeatures(degree=1, include_bias=False)
-X_scaled = pd.DataFrame(scaler.fit_transform(X))
+X_scaled = pd.DataFrame(scaler.transform(X))
 polynomials = pd.DataFrame(poly.fit_transform(X_scaled))
 X_scaled = pd.concat([X_scaled, polynomials], axis=1)
 Y = pd.Series(clf.predict_proba(X_scaled)[:, 1])
